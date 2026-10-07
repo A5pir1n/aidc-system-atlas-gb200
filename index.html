@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#060b12">
+  <meta name="description" content="NVIDIA DGX GB200 SuperPOD 的可点击 3D 解剖演示：从数据中心机柜进入计算托盘、NVLink 交换和光互连。">
+  <title>AIDC 3D 解剖 · DGX GB200</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23060b12'/%3E%3Cpath d='M14 13h36v38H14z' fill='none' stroke='%2376b900' stroke-width='5'/%3E%3Cpath d='M20 24h24M20 33h24M20 42h24' stroke='%2376b900' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="app">
+    <canvas id="scene" aria-label="可交互的 3D AIDC 架构"></canvas>
+    <div class="shade" id="shade"></div>
+    <header class="chrome">
+      <div class="brand"><span class="mark"><i></i><i></i><i></i></span><div><strong>AIDC / SYSTEM ATLAS</strong><small>DGX GB200 · 可交互 3D 剖面</small></div></div>
+      <div class="edition">NVIDIA 公开参考架构 · 演示模型</div>
+    </header>
+    <div class="trail" id="trail"></div>
+    <div class="lens-toggle" role="group" aria-label="查看方式"><button id="physicalLens" type="button">设备位置</button><button id="logicalLens" type="button">连接关系</button></div>
+    <aside class="brief" id="brief" aria-live="polite"></aside>
+    <div class="hint" id="hint">拖动旋转 · 滚轮缩放 · 点击发光部件</div>
+    <div class="hover-label" id="hoverLabel"></div>
+    <nav class="quick-nav" aria-label="场景切换">
+      <button data-view="overview">全局</button><button data-view="rack">机柜</button><button data-view="tray">计算托盘</button><button data-view="switch">NVLink 交换</button><button data-view="ibRail">IB Rail</button><button data-view="eth">Ethernet</button>
+    </nav>
+    <nav class="drill-nav" id="drillNav" aria-label="InfiniBand 下钻层级" hidden></nav>
+  </div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
